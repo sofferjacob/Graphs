@@ -1,17 +1,19 @@
 #include <iostream>
 #include "graph.h"
+#include "util.h"
 
 using namespace std;
 
 int main() {
-    cout << "Adj. List" << endl;
-    Graph a("data.txt", true);
-    cout << a.print() << endl;
-    cout << a.bfs(3, 4) << endl;
-    cout << a.dfs(3, 4) << endl;
-    cout << "Adj. Matrix" << endl;
-    Graph b("data.txt", false);
-    cout << b.print() << endl;
-    cout << b.bfs(3, 4) << endl;
-    cout << b.dfs(3, 4) << endl;
+    cout << "Graph Algorithms" << endl;
+    bool printGraphs = getInput();
+    Graph a("petersen.mtx", Matrix);
+    Graph b("weighted2.txt", Weighted);
+    Graph c("bipartite.txt", Matrix);
+    cout << "Graph A (petersen.mtx, unweighted):" << endl;
+    driver(a, printGraphs);
+    cout << "Graph B (weighted2.txt, weighted):" << endl;
+    driver(b, printGraphs);
+    cout << "Graph C (bipartite.txt, unweighted):" << endl;
+    driver(c, printGraphs);
 }
